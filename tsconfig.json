@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "noImplicitReturns": true, // Проверить как будет работать в ф-иях типа action
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    // Modules
+    "baseUrl": "src",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "pages": ["pages"],
+      "shared": ["shared"]
+    },
+    "resolveJsonModule": true,
+    // "typeRoots": ["global.d.ts"] // TODO: проверить, что global.d.ts подтягивается, если не указывать typeRoots
+    "outDir": "./build", // TODO: нужно ли указывать, если у меня есть сборщик?
+    "sourceMap": true,
+    // JavaScript Support
+    "allowJs": true, // TODO: в идеале весь проект должен содержать только TS код, поэтому в идеале не использовать allowJs
+    // Interop
+    "esModuleInterop": true,
+    // Language and Environment
+    // "emitDecoratorMetadata": true // TODO: а нужно ли вообще?
+    // "experimentalDecorators": true // TODO: а нужно ли вообще?
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
+    "target": "esnext",
+    // Completeness
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "tests/**/*"] // TODO: Может вообще не указывать?
+}
+
+// *TODO поправлю после начала разработки проекта

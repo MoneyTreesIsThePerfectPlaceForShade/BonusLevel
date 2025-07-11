@@ -1,11 +1,8 @@
 {
-  "name": "bonuslevel",
+  "name": "BonusLevel",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MoneyTreesIsThePerfectPlaceForShade/BonusLevel.git"
@@ -15,5 +12,19 @@
   "bugs": {
     "url": "https://github.com/MoneyTreesIsThePerfectPlaceForShade/BonusLevel/issues"
   },
-  "homepage": "https://github.com/MoneyTreesIsThePerfectPlaceForShade/BonusLevel#readme"
+  "homepage": "https://github.com/MoneyTreesIsThePerfectPlaceForShade/BonusLevel#readme",
+  "engines": {
+    "node": ">=22.11.0",
+    "npm": ">=10.9.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vite": "6.3.5"
+  }
 }
