@@ -1,0 +1,55 @@
+@define-mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* определение цветовых схем */
+:root {
+  /* светлая тема (по умолчанию) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-color: #007bff;
+  --border-color: #e0e0e0;
+}
+
+/* темная тема */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --accent-color: #4dabf7;
+  --border-color: #404040;
+}
+
+/* использование переменных */
+.title {
+  user-select: none;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  @mixin flex-center;
+}
+
+/* дополнительные стили для темы */
+.container {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.button {
+  background-color: var(--accent-color);
+  color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

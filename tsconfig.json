@@ -10,27 +10,29 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
+      "app": ["app"],
       "pages": ["pages"],
       "shared": ["shared"]
     },
     "resolveJsonModule": true,
-    // "typeRoots": ["global.d.ts"] // TODO: проверить, что global.d.ts подтягивается, если не указывать typeRoots
-    "outDir": "./build", // TODO: нужно ли указывать, если у меня есть сборщик?
     "sourceMap": true,
     // JavaScript Support
-    "allowJs": true, // TODO: в идеале весь проект должен содержать только TS код, поэтому в идеале не использовать allowJs
+    "allowJs": true,
     // Interop
     "esModuleInterop": true,
+    "isolatedModules": true, // vite requires
     // Language and Environment
     // "emitDecoratorMetadata": true // TODO: а нужно ли вообще?
     // "experimentalDecorators": true // TODO: а нужно ли вообще?
     "jsx": "react-jsx",
     "lib": ["ESNext", "DOM"],
+    "types": ["node"],
     "target": "esnext",
+    "useDefineForClassFields": true,
     // Completeness
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "tests/**/*"] // TODO: Может вообще не указывать?
+  "include": ["src/**/*", "tests/**/*", "vite.config.ts"] // TODO: Может вообще не указывать?
 }
 
 // *TODO поправлю после начала разработки проекта
