@@ -1,2 +1,1 @@
-const someVar = 'someVar';
-console.log(someVar);
+export const reflectionEternal = (wordOfWisdom: string) => `${wordOfWisdom} is reflection eternal`;

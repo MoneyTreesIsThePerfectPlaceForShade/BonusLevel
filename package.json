@@ -1,6 +1,6 @@
 {
   "name": "bonuslevel",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -21,21 +21,38 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "lint": "npx eslint .",
+    "stylelint": "stylelint '**/*.css'",
+    "test": "jest"
   },
   "dependencies": {
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@nsmp/eslint-plugin-rules": "2.1.0",
+    "@swc/jest": "0.2.39",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
+    "@types/jest": "30.0.0",
     "@types/node": "24.0.13",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "@vitejs/plugin-react-swc": "3.10.2",
     "cssnano": "7.0.7",
+    "eslint": "9.31.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "30.0.4",
+    "jest-environment-jsdom": "30.0.4",
+    "jest-svg-transformer": "1.0.0",
     "postcss-import": "16.1.1",
     "postcss-mixins": "12.0.0",
     "postcss-preset-env": "10.2.4",
+    "stylelint": "16.21.1",
+    "stylelint-config-standard": "38.0.0",
+    "stylelint-order": "7.0.0",
     "typescript": "5.8.3",
     "vite": "6.3.5"
   }

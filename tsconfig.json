@@ -26,11 +26,10 @@
     // "experimentalDecorators": true // TODO: а нужно ли вообще?
     "jsx": "react-jsx",
     "lib": ["ESNext", "DOM"],
-    "types": ["node"],
     "target": "esnext",
     "useDefineForClassFields": true,
     // Completeness
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": ["src/**/*", "tests/**/*", "vite.config.ts"] // TODO: Может вообще не указывать?
 }
