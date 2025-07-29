@@ -21,13 +21,17 @@ export default defineConfig(({command}) => {
 		// build
 		return {
 			...commonConfig,
+			base: './',
 			build: {
 				outDir: 'build',
 				rollupOptions: {
 					output: {
 						assetFileNames: '[name]-[hash][extname]',
 						chunkFileNames: '[name]-[hash].js',
-						entryFileNames: '[name].js'
+						entryFileNames: '[name]-[hash].js',
+						manualChunks: {
+							vendor: ['react', 'react-dom']
+						}
 					}
 				}
 			}
