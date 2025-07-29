@@ -11,6 +11,7 @@
     "moduleResolution": "bundler",
     "paths": {
       "app": ["app"],
+      "components": ["components"],
       "pages": ["pages"],
       "shared": ["shared"]
     },
@@ -30,6 +31,7 @@
     "useDefineForClassFields": true,
     // Completeness
     "skipLibCheck": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src/**/*", "tests/**/*", "vite.config.ts"] // TODO: Может вообще не указывать?
 }

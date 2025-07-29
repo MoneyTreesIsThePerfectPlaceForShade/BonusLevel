@@ -7,6 +7,7 @@ export default defineConfig(({command}) => {
 		resolve: {
 			alias: {
 				app: '/src/app',
+				components: '/src/components',
 				pages: '/src/pages',
 				shared: '/src/shared'
 			}
