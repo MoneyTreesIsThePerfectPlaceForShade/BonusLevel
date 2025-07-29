@@ -22,7 +22,14 @@ export default defineConfig(({command}) => {
 		return {
 			...commonConfig,
 			build: {
-				outDir: 'build'
+				outDir: 'build',
+				rollupOptions: {
+					output: {
+						assetFileNames: '[name]-[hash][extname]',
+						chunkFileNames: '[name]-[hash].js',
+						entryFileNames: '[name].js'
+					}
+				}
 			}
 		};
 	}
