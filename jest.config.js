@@ -1,7 +1,6 @@
 /** @type {import('jest').Config} */
 
 const config = {
-	collectCoverage: true,
 	collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!src/**/*.d.ts'],
 	coverageDirectory: 'coverage',
 	// Run test with --experimental-vm-modules: TODO: просит запускать тесты через ноду, проверю потом

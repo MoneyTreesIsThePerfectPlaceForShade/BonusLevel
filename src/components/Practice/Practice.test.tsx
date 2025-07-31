@@ -1,20 +1,38 @@
 import {Practice} from './Practice';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
+
+const testId = 'practice-input';
 
 describe('Practice', () => {
-	it.skip('render message', () => {
-		const text = 'Kumomi';
+	it('имеет css класс "input"', () => {
+		const expectedClass = 'input';
 
-		render(<Practice message={text} />);
+		render(<Practice placeholder="some message" type="text" />);
 
-		expect(screen.getByDisplayValue(text)).toBe('Kumomi is wisdom');
+		expect(screen.getByTestId(testId)).toHaveClass(expectedClass);
 	});
 
-	it('have css class "message"', () => {
-		const expectedClass = 'message';
+	it('имеет заглушку', () => {
+		const expectedPlaceholder = 'championship';
 
-		render(<Practice message="some message" />);
+		render(<Practice placeholder={expectedPlaceholder} type="text" />);
 
-		expect(screen.getByTestId('message')).toHaveClass(expectedClass);
+		expect(screen.getByTestId(testId)).toHaveAttribute('placeholder', expectedPlaceholder);
+	});
+
+	it('вызывает функцию обратного вызова onChange при изменении значения поля', () => {
+		// Подготовка данных
+		const newValue = 'cold summer';
+		const logValue = jest.fn();
+
+		// Выполнение действий
+		render(<Practice onChange={logValue} placeholder="it is going to be" type="text" />);
+
+		const input = screen.getByTestId(testId);
+
+		fireEvent.change(input, {target: {value: newValue}});
+
+		// Проверка результатов
+		expect(logValue).toHaveBeenCalledTimes(1);
 	});
 });

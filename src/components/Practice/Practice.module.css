@@ -1,8 +1,8 @@
-.message {
+.input {
   color: brown;
   font-size: 50px;
-}
 
-.message > span {
-  color: goldenrod;
+  &::placeholder {
+    color: goldenrod;
+  }
 }

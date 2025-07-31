@@ -1,12 +1,16 @@
 import {Practice} from 'components/Practice/Practice';
-import {useEffect} from 'react';
+import {ChangeEvent, useCallback, useEffect} from 'react';
 
 export const App = () => {
 	useEffect(() => {}, []);
 
+	const logValue = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+		console.log(e.target.value);
+	}, []);
+
 	return (
 		<>
-			<Practice message="You run this hard just to stay in place" tag="i" />
+			<Practice onChange={logValue} placeholder="You run this hard just to stay in place" type="text" />
 		</>
 	);
 };
