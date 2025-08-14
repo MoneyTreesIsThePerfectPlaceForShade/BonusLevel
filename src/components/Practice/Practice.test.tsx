@@ -1,6 +1,7 @@
 import {Practice} from './Practice';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import {ChangeEvent} from 'react';
 
 const testId = 'practice-input';
 
@@ -52,5 +53,43 @@ describe('Practice', () => {
 
 		// Проверка результатов
 		expect(logValue).toHaveBeenCalledTimes(newValue.length);
+	});
+
+	it('вызывает функцию обратного вызова onSuccess, после успешного выполнения асинхронной функции onChange', async () => {
+		// Подготвка данных
+		const newValue = 'cold summer';
+		const onSuccess = jest.fn();
+
+		render(<Practice onChange={jest.fn()} onSuccess={onSuccess} placeholder="cold summer" type="text" />);
+
+		// Выполнение действий
+
+		const input = screen.getByTestId(testId);
+
+		fireEvent.change(input, {target: {value: newValue}});
+
+		// Проверка результатов
+		await waitFor(() => {
+			expect(onSuccess).toHaveBeenCalledTimes(1);
+		});
+	});
+
+	it('вызывает функцию обратного вызова onError, после провального выполнения асинхронной функции onChange', async () => {
+		// Подготвка данных
+		const newValue = 'cold summer';
+		const onError = jest.fn();
+
+		render(<Practice onChange={(e: ChangeEvent<HTMLInputElement>) => Promise.reject(e)} onError={onError} placeholder="cold summer" type="text" />);
+
+		// Выполнение действий
+
+		const input = screen.getByTestId(testId);
+
+		fireEvent.change(input, {target: {value: newValue}});
+
+		// Проверка результатов
+		await waitFor(() => {
+			expect(onError).toHaveBeenCalledTimes(1);
+		});
 	});
 });

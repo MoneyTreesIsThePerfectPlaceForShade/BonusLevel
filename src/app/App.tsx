@@ -1,16 +1,19 @@
+import {useDummy} from './hook';
 import {Practice} from 'components/Practice/Practice';
-import {ChangeEvent, useCallback, useEffect} from 'react';
+import {ChangeEvent, useCallback} from 'react';
 
 export const App = () => {
-	useEffect(() => {}, []);
+	const {placeholder} = useDummy();
 
-	const logValue = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target.value);
+	const logValue = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
+		setTimeout(() => {
+			console.log(e.target.value);
+		}, 3000);
 	}, []);
 
 	return (
 		<>
-			<Practice onChange={logValue} placeholder="You run this hard just to stay in place" type="text" />
+			<Practice onChange={logValue} placeholder={placeholder} type="text" />
 		</>
 	);
 };

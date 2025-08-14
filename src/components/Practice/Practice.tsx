@@ -4,14 +4,38 @@ import {ChangeEvent} from 'react';
 export const Practice = (
 	{
 		onChange,
+		onError,
+		onSuccess,
 		placeholder,
 		type
 	}:
 	{
-		onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
+		onChange?: (e: ChangeEvent<HTMLInputElement>) => Promise<void>,
+		onError?: () => void,
+		onSuccess?: () => void,
 		placeholder: string,
 		type: string
 	}
-) =>
-	<input className={styles.input} data-testid="practice-input" onChange={onChange} placeholder={placeholder} type={type} />
+) => {
+	const customOnChange = async (e: ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+
+		try {
+			await onChange?.(e);
+			onSuccess?.();
+		} catch {
+			onError?.();
+		}
+	};
+
+	return (
+		<input
+			className={styles.input}
+			data-testid="practice-input"
+			onChange={customOnChange}
+			placeholder={placeholder}
+			type={type}
+		/>
+	);
+}
 ;
