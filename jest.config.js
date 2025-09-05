@@ -5,6 +5,7 @@ const config = {
 	coverageDirectory: 'coverage',
 	// Run test with --experimental-vm-modules: TODO: просит запускать тесты через ноду, проверю потом
 	extensionsToTreatAsEsm: ['.ts', '.tsx'],
+	moduleDirectories: ['node_modules', 'src'],
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
 	moduleNameMapper: {
 		'^.+\\.css$': 'identity-obj-proxy',

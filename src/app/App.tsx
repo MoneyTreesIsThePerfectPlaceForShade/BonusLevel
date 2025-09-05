@@ -1,5 +1,5 @@
 import {Practice} from 'components/Practice/Practice';
-import {ChangeEvent, useCallback, useEffect} from 'react';
+import React, {ChangeEvent, useCallback, useEffect} from 'react';
 import {usePlaceholder} from 'shared/hooks/usePlaceholder';
 
 export const App = () => {
@@ -16,8 +16,9 @@ export const App = () => {
 	}, []);
 
 	return (
-		<>
+		<div data-testid="app">
+			<h1>Practice</h1>
 			<Practice onChange={logValue} placeholder={placeholder} type="text" />
-		</>
+		</div >
 	);
 };

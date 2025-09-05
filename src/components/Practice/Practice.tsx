@@ -1,5 +1,5 @@
 import styles from './Practice.module.css';
-import {ChangeEvent} from 'react';
+import {ChangeEvent, useState} from 'react';
 
 export const Practice = (
 	{
@@ -17,8 +17,12 @@ export const Practice = (
 		type: string
 	}
 ) => {
+	const [currentValue, setCurrentValue] = useState('');
+
 	const customOnChange = async (e: ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
+
+		setCurrentValue(e.target.value);
 
 		try {
 			await onChange?.(e);
@@ -35,6 +39,7 @@ export const Practice = (
 			onChange={customOnChange}
 			placeholder={placeholder}
 			type={type}
+			value={currentValue}
 		/>
 	);
 }
