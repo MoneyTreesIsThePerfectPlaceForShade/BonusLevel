@@ -1,7 +1,7 @@
 /** @type {import('jest').Config} */
 
 const config = {
-	collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!src/**/*.d.ts'],
+	collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!src/**/*.d.ts', '!src/main.tsx'],
 	coverageDirectory: 'coverage',
 	// Run test with --experimental-vm-modules: TODO: просит запускать тесты через ноду, проверю потом
 	extensionsToTreatAsEsm: ['.ts', '.tsx'],

@@ -1,9 +1,13 @@
-import {useDummy} from './hook';
 import {Practice} from 'components/Practice/Practice';
-import {ChangeEvent, useCallback} from 'react';
+import {ChangeEvent, useCallback, useEffect} from 'react';
+import {usePlaceholder} from 'shared/hooks/usePlaceholder';
 
 export const App = () => {
-	const {placeholder} = useDummy();
+	const {placeholder, setCustomPlaceholder} = usePlaceholder();
+
+	useEffect(() => {
+		setCustomPlaceholder('Back Up');
+	}, []);
 
 	const logValue = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
 		setTimeout(() => {
